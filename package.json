@@ -1,0 +1,22 @@
+{
+  "name": "js-quil-json",
+  "version": "0.1.0",
+  "description": "JavaScript quil to JSON coverter",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Felix Tripier",
+  "license": "ISC",
+  "dependencies": {
+    "ohm-js": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-es2016": "^6.24.1",
+    "jest": "^23.6.0",
+    "webpack": "^4.27.1"
+  }
+}
