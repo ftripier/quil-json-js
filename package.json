@@ -1,10 +1,12 @@
 {
   "name": "js-quil-json",
   "version": "0.1.0",
-  "description": "JavaScript quil to JSON coverter",
+  "description": "JavaScript Quil to JSON coverter",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint \"src/**\"",
+    "format": "prettier --write ./**/*.js"
   },
   "author": "Felix Tripier",
   "license": "ISC",
