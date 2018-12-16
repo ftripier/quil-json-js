@@ -1,32 +1,270 @@
 Quil {
-  Exp
-    = AddExp
+  quil = allInstr? ( eol+ allInstr )* eol* end
 
-  AddExp
-    = AddExp "+" MulExp  -- plus
-    | AddExp "-" MulExp  -- minus
-    | MulExp
+  allInstr
+    = defGate
+    | defCircuit
+    | instr
 
-  MulExp
-    = MulExp "*" ExpExp  -- times
-    | MulExp "/" ExpExp  -- divide
-    | ExpExp
+  instr
+    = measure
+    | gate
+    | defLabel
+    | halt
+    | jump
+    | jumpWhen
+    | jumpUnless
+    | resetState
+    | wait
+    | classicalUnary
+    | classicalBinary
+    | classicalComparison
+    | load
+    | store
+    | nop
+    | include
+    | pragma
+    | memoryDescriptor
 
-  ExpExp
-    = PriExp "^" ExpExp  -- power
-    | PriExp
 
-  PriExp
-    = "(" Exp ")"  -- paren
-    | "+" PriExp   -- pos
-    | "-" PriExp   -- neg
-    | ident
-    | number
+  /* Static and Parametric Gates */
 
-  ident  (an identifier)
+
+  gate
+    = name ( "(" sp param ( "," sp param )* ")" sp )? (sp qubit)+
+
+  name
+    = identifier
+
+  qubit
+    = int
+
+  param
+    = expression
+
+  /* Gate Definitions */
+
+
+  defGate
+    = "DEFGATE" sp name ( "(" variable ( "," variable )* ")" )? ":" eol matrix
+
+  variable
+    = "%" identifier
+
+  matrix
+    = ( matrixRow eol )* matrixRow
+
+  matrixRow
+    = tab expression ( "," expression )*
+
+  /* Circuits */
+
+
+  defCircuit
+    = "DEFCIRCUIT" sp name ( "(" variable ( "," variable )* ")" )? (sp qubitVariable)* ":" eol circuit
+
+  qubitVariable
+    = identifier
+
+  circuitQubit
+    = qubit
+    | qubitVariable
+
+  circuitGate
+    = name ( "(" param ( "," param )* ")" )? sp circuitQubit+
+
+  circuitMeasure
+    = "MEASURE" sp circuitQubit sp addr?
+
+  circuitResetState
+    = "RESET" circuitQubit?
+
+  circuitInstr
+    = circuitGate
+    | circuitMeasure
+    | circuitResetState
+    | instr
+
+  circuit
+    = ( tab circuitInstr eol )* tab circuitInstr
+
+
+  /* Measurement */
+
+
+  measure
+    = "MEASURE" sp qubit sp addr?
+
+  addr
+    = identifier? "[" int "]" --dereference
+    | identifier
+
+
+  /* Program Control */
+
+
+  defLabel
+    = "LABEL" sp label
+
+  label
+    = "@" identifier
+
+  halt
+    = "HALT"
+
+  jump
+    = "JUMP" sp label
+
+  jumpWhen
+    = "JUMP-WHEN" sp label sp addr
+
+  jumpUnless
+    = "JUMP-UNLESS" sp label sp addr
+
+  /* Zeroing the Quantum State */
+
+
+  resetState
+    = "RESET" sp qubit?
+
+  /* Classical/Quantum Synchronization */
+
+
+  wait
+    = "WAIT"
+
+  /* Classical Instructions */
+
+
+  memoryDescriptor
+    = "DECLARE" sp identifier sp identifier ( "[" int "]" )? ( "SHARING" identifier ( offsetDescriptor )* )?
+
+  offsetDescriptor
+    = "OFFSET" sp int sp identifier
+
+  classicalUnary
+    = ( "NEG" | "NOT" | "TRUE" | "FALSE" ) addr
+
+  classicalBinary
+    = logicalBinaryOp
+    | arithmeticBinaryOp
+    | move
+    | exchange
+    | convert
+
+  logicalBinaryOp
+    = ( "AND" | "OR" | "IOR" | "XOR" ) sp addr sp ( addr | int )
+
+  arithmeticBinaryOp
+    = ( "ADD" | "SUB" | "MUL" | "DIV" ) sp addr sp ( addr | number )
+
+  move
+    = "MOVE"sp addr sp ( addr | number )
+
+  exchange
+    = "EXCHANGE" sp addr sp addr
+
+  convert
+    = "CONVERT" sp addr sp addr
+
+  load
+    = "LOAD" sp addr sp identifier sp addr
+
+  store
+    = "STORE" identifier addr ( addr | number )
+
+  classicalComparison
+    = ( "EQ" | "GT" | "GE" | "LT" | "LE" ) addr addr ( addr | number )
+
+  /* The No-Operation Instruction */
+
+
+  nop
+    = "NOP"
+
+  /* File Inclusion */
+
+
+  include
+    = "INCLUDE" sp string
+
+  /* Pragma Support */
+
+
+  pragma
+    = "PRAGMA" sp identifier sp pragmaName* sp string?
+
+  pragmaName
+    = identifier
+    | int
+
+  /* Expressions (in order of precedence) */
+
+
+  expression
+    = "(" sp expression sp ")" --parenthesis
+    | sign expression --signed
+    | expression sp "^" sp expression --power
+    | expression sp ( "*" | "/" ) sp expression --mulDiv
+    | expression sp ( "+" | "-" ) sp expression --addSub
+    | function "(" sp expression sp ")" --function
+    | number --number
+    | variable --variable
+    | addr --addr
+
+
+  function
+    = "sin"
+    | "cos"
+    | "sqrt"
+    | "exp"
+    | "cis"
+
+  sign
+    = "+"
+    | "-"
+
+  /* Numbers */
+
+  number
+    = real
+    | imaginary
+    | "i"
+    | "pi"
+
+  imaginary
+    = real "i"
+
+  real
+    = float
+    | int
+
+  float (float)
+    = digit+ ( "." digit+ )? ( ( "e"|"E" ) ( "+" | "-" )? digit+ )?
+
+  int (integer)
+    = digit+
+
+  /* lexemes */
+
+  identifier (identifier)
     = letter alnum*
 
-  number  (a number)
-    = digit* "." digit+  -- fract
-    | digit+             -- whole
+  /* whitespace */
+
+  eol (end of line)
+    = "\r"? "\n"
+
+  tab (tab)
+    = "    "
+
+  sp (non breaking whitespace)
+    = (" " | tab)*
+
+  string (string literal)
+    = "\"" (~eol any)* "\""
+
+  comment
+    = "#" (~eol any)*
+
 }
