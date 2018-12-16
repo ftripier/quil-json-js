@@ -1,7 +1,7 @@
 {
-  "name": "js-quil-json",
+  "name": "quil-json-js",
   "version": "0.1.0",
-  "description": "JavaScript Quil to JSON coverter",
+  "description": "Quil to JSON coverter written in JavaScript",
   "main": "index.js",
   "scripts": {
     "test": "jest",
