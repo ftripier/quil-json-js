@@ -52,10 +52,10 @@ Quil {
     = "%" identifier
 
   matrix
-    = ( matrixRow eol )* matrixRow
+    = matrixRow (eol matrixRow)+
 
   matrixRow
-    = tab expression ( "," expression )*
+    = tab expression sp ( "," sp expression )*
 
   /* Circuits */
 
@@ -227,8 +227,8 @@ Quil {
   /* Numbers */
 
   number
-    = real
-    | imaginary
+    = imaginary
+    | real
     | "i"
     | "pi"
 
@@ -248,7 +248,7 @@ Quil {
   /* lexemes */
 
   identifier (identifier)
-    = letter alnum*
+    = letter (alnum | "-" | "_")*
 
   /* whitespace */
 
