@@ -1,5 +1,5 @@
 Quil {
-  quil = allInstr? ( eol+ allInstr )* eol* end
+  quil = (~end allInstr eol* )*
 
   allInstr
     = defGate
@@ -31,7 +31,7 @@ Quil {
 
 
   gate
-    = name ( "(" sp param ( "," sp param )* ")" sp )? (sp qubit)+
+    = name ( "(" listOf<param, ","> ")" sp )? (sp qubit)+
 
   name
     = identifier

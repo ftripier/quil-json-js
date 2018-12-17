@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quil to JSON converts quil programs to a JSON representation 1`] = `
+Array [
+  Object {
+    "field": "BIT",
+    "index": 1,
+    "register": "ro",
+    "type": "memoryDescriptor",
+  },
+  Object {
+    "name": "X",
+    "params": Array [],
+    "qubits": Array [
+      0,
+    ],
+    "type": "gate",
+  },
+  Object {
+    "address": 0,
+    "qubitIndex": 0,
+    "type": "measure",
+  },
+]
+`;
