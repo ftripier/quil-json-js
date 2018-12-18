@@ -6,4 +6,9 @@ describe('Quil to JSON', () => {
     const program = fixtures.flipAndMeasure;
     expect(quilToJSON(program)).toMatchSnapshot();
   });
+
+  it('converts custom gates to a JSON representation', () => {
+    const program = fixtures.customGate;
+    expect(quilToJSON(program)).toMatchSnapshot();
+  });
 });

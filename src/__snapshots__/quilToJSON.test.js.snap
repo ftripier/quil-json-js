@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Quil to JSON converts custom gates to a JSON representation 1`] = `
+Array [
+  Object {
+    "matrix": Array [
+      Object {
+        "expression": "0.5+0.5i",
+        "type": "expression",
+      },
+      Object {
+        "expression": "0.5-0.5i",
+        "type": "expression",
+      },
+    ],
+    "name": "SQRT-X",
+    "type": "defGate",
+    "variables": Array [],
+  },
+  Object {
+    "name": "SQRT-X",
+    "params": Array [],
+    "qubits": Array [
+      0,
+    ],
+    "type": "gate",
+  },
+]
+`;
+
 exports[`Quil to JSON converts quil programs to a JSON representation 1`] = `
 Array [
   Object {

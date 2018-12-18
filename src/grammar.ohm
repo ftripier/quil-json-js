@@ -31,7 +31,7 @@ Quil {
 
 
   gate
-    = name ( "(" listOf<param, ","> ")" sp )? (sp qubit)+
+    = name ( "(" listOf<param, commaSeparator> ")" sp )? (sp qubit)+
 
   name
     = identifier
@@ -46,22 +46,22 @@ Quil {
 
 
   defGate
-    = "DEFGATE" sp name ( "(" variable ( "," variable )* ")" )? ":" eol matrix
+    = "DEFGATE" sp name ( "(" listOf<variable, commaSeparator> ")" )? ":" eol matrix
 
   variable
     = "%" identifier
 
   matrix
-    = matrixRow (eol matrixRow)+
+    = (matrixRow eol)+
 
   matrixRow
-    = tab expression sp ( "," sp expression )*
+    = tab nonemptyListOf<expression, commaSeparator>
 
   /* Circuits */
 
 
   defCircuit
-    = "DEFCIRCUIT" sp name ( "(" variable ( "," variable )* ")" )? (sp qubitVariable)* ":" eol circuit
+    = "DEFCIRCUIT" sp name ( "(" listOf<variable, commaSeparator> ")" )? (sp qubitVariable)* ":" eol circuit
 
   qubitVariable
     = identifier
@@ -71,7 +71,7 @@ Quil {
     | qubitVariable
 
   circuitGate
-    = name ( "(" param ( "," param )* ")" )? sp circuitQubit+
+    = name ( "(" listOf<param, commaSeparator> ")" )? sp circuitQubit+
 
   circuitMeasure
     = "MEASURE" sp circuitQubit sp addr?
@@ -257,6 +257,9 @@ Quil {
 
   tab (tab)
     = "    "
+
+  commaSeparator (comma)
+    = "," sp
 
   sp (non breaking whitespace)
     = (" " | tab)*

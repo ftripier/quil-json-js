@@ -19,6 +19,23 @@ export default function quilToJSON(quilProgram) {
         index: index.length > 0 ? index[0] : undefined
       };
     },
+    defGate(defgate, leftSpace, name, leftP, variables, rightP, colon, eol, matrix) {
+      return {
+        type: 'defGate',
+        name: name.quilToJSON(),
+        variables: variables.quilToJSON(),
+        matrix: matrix.quilToJSON()
+      };
+    },
+    variable(percent, identifier) {
+      return identifier.quilToJSON();
+    },
+    matrix(matrixRows, lines) {
+      return matrixRows.quilToJSON();
+    },
+    matrixRow(tab, expressions) {
+      return expressions.quilToJSON();
+    },
     gate(e1, e2, e3, e4, e5, e6, e7) {
       return {
         type: 'gate',
@@ -63,6 +80,9 @@ export default function quilToJSON(quilProgram) {
         type: 'expression',
         expression: this.sourceString
       };
+    },
+    nonemptyListOf(firstParamList, secondParamList, delimiter2) {
+      return firstParamList.quilToJSON();
     }
   });
 
