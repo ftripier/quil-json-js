@@ -2,13 +2,10 @@ import * as fixtures from '../testing/fixtures';
 import quilToJSON from './quilToJSON';
 
 describe('Quil to JSON', () => {
-  it('converts quil programs to a JSON representation', () => {
-    const program = fixtures.flipAndMeasure;
-    expect(quilToJSON(program)).toMatchSnapshot();
-  });
-
-  it('converts custom gates to a JSON representation', () => {
-    const program = fixtures.customGate;
-    expect(quilToJSON(program)).toMatchSnapshot();
+  it('converts all quil programs to a JSON representation correctly', () => {
+    Object.keys(fixtures).forEach(fixture => {
+      const program = fixtures[fixture];
+      expect(quilToJSON(program)).toMatchSnapshot();
+    });
   });
 });
