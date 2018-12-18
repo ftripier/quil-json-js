@@ -59,7 +59,10 @@ export default function quilToJSON(quilProgram) {
       return parseInt(this.sourceString, 10);
     },
     expression(e) {
-      return 'EXPRESSION';
+      return {
+        type: 'expression',
+        expression: this.sourceString
+      };
     }
   });
 
