@@ -33,7 +33,7 @@ export default function quilToJSON(quilProgram) {
     ) {
       const parsedSharing = unpackOptional(sharingIdentifier);
       return {
-        type: 'memoryDescriptor',
+        type: declare.quilToJSON(),
         register: register.quilToJSON(),
         field: field.quilToJSON(),
         index: index.quilToJSON(),
@@ -47,14 +47,14 @@ export default function quilToJSON(quilProgram) {
     },
     offsetDescriptor(offset, leftSpace, index, rightSpace, register) {
       return {
-        type: 'offsetDescriptor',
+        type: offset.quilToJSON(),
         index: index.quilToJSON(),
         register: register.quilToJSON()
       };
     },
     defGate(defgate, leftSpace, name, leftP, variables, rightP, colon, eol, matrix) {
       return {
-        type: 'defGate',
+        type: defgate.quilToJSON(),
         name: name.quilToJSON(),
         variables: variables.quilToJSON(),
         matrix: matrix.quilToJSON()
@@ -69,33 +69,35 @@ export default function quilToJSON(quilProgram) {
     matrixRow(tab, expressions) {
       return expressions.quilToJSON();
     },
-    gate(e1, e2, e3, e4, e5, e6, e7) {
+    gate(name, leftP, params, rightP, space, qubitSpaces, qubits) {
       return {
-        type: 'gate',
-        name: e1.quilToJSON(),
-        params: e3.quilToJSON(),
-        qubits: e7.quilToJSON()
+        type: 'GATE',
+        name: name.quilToJSON(),
+        params: unpackOptional(params),
+        qubits: qubits.quilToJSON()
       };
     },
     param: e => e.quilToJSON(),
     name: identifier => identifier.quilToJSON(),
-    measure(e1, e2, e3, e4, e5) {
+    measure(measure, leftSpace, qubit, rightSpace, address) {
       return {
-        type: 'measure',
-        qubitIndex: e3.quilToJSON(),
-        address: e3.quilToJSON()
+        type: measure.quilToJSON(),
+        qubitIndex: qubit.quilToJSON(),
+        address: unpackOptional(address)
       };
     },
     addr_dereference(identifier, leftBracket, index, rightBracket) {
       return {
-        type: 'dereference',
-        address: identifier.quilToJSON(),
+        type: 'ADDRESS',
+        addressType: 'DEREFERENCE',
+        address: unpackOptional(identifier),
         index: index.quilToJSON()
       };
     },
-    addr(identifier) {
+    addr_constant(identifier) {
       return {
-        type: 'address',
+        type: 'ADDRESS',
+        addressType: 'CONSTANT',
         address: identifier.quilToJSON()
       };
     },
@@ -110,7 +112,7 @@ export default function quilToJSON(quilProgram) {
     },
     expression(e) {
       return {
-        type: 'expression',
+        type: 'EXPRESSION',
         expression: this.sourceString
       };
     },
@@ -128,7 +130,7 @@ export default function quilToJSON(quilProgram) {
       circuit
     ) {
       return {
-        type: 'defCircuit',
+        type: defcircuit.quilToJSON(),
         name: name.quilToJSON(),
         variables: variables.quilToJSON(),
         qubitVariables: qubitVariables.quilToJSON(),
@@ -143,7 +145,7 @@ export default function quilToJSON(quilProgram) {
     },
     circuitGate(name, lParen, params, rParen, space, circuitQubits) {
       return {
-        type: 'circuitGate',
+        type: 'CIRCUITGATE',
         name: name.quilToJSON(),
         params: params.quilToJSON(),
         qubits: circuitQubits.quilToJSON()
@@ -151,14 +153,14 @@ export default function quilToJSON(quilProgram) {
     },
     circuitMeasure(measure, leftSpace, circuitQubit, rightSpace, address) {
       return {
-        type: 'circuitMeasure',
+        type: measure.quilToJSON(),
         qubit: circuitQubit.quilToJSON(),
         address: address.quilToJSON()
       };
     },
     circuitResetState(reset, circuitQubit) {
       return {
-        type: 'circuitResetState',
+        type: reset.quilToJSON(),
         qubit: circuitQubit.quilToJSON()
       };
     },
@@ -168,41 +170,131 @@ export default function quilToJSON(quilProgram) {
     },
     defLabel(deflabel, space, label) {
       return {
-        type: 'defLabel',
+        type: deflabel.quilToJSON(),
         label: label.quilToJSON()
       };
     },
     label(at, identifier) {
-      return identifier.quilToJSON();
+      return {
+        type: 'LABEL',
+        name: identifier.quilToJSON()
+      };
     },
     halt(halt) {
       return {
-        type: 'halt'
+        type: halt.quilToJSON()
       };
     },
     jump(jump, space, label) {
       return {
-        type: 'jump',
+        type: jump.quilToJSON(),
         label: label.quilToJSON()
       };
     },
     jumpWhen(jumpWhen, leftSpace, label, rightSpace, address) {
       return {
-        type: 'jumpWhen',
+        type: jumpWhen.quilToJSON(),
         label: label.quilToJSON(),
         address: address.quilToJSON()
       };
     },
     jumpUnless(jumpUnless, leftSpace, label, rightSpace, address) {
       return {
-        type: 'jumpUnless',
+        type: jumpUnless.quilToJSON(),
         label: label.quilToJSON(),
         address: address.quilToJSON()
       };
     },
-    resetState(reset, space, qubit) {},
+    resetState(reset, space, qubit) {
+      return {
+        type: reset.quilToJSON(),
+        qubit: unpackOptional(qubit)
+      };
+    },
+    wait(wait) {
+      return {
+        type: wait.quilToJSON()
+      };
+    },
+    classicalUnary(unaryOperation, addr) {
+      return {
+        type: unaryOperation.quilToJSON(),
+        address: addr.quilToJSON()
+      };
+    },
+    classicalBinary(binaryOp) {
+      return binaryOp.quilToJSON();
+    },
+    logicalBinaryOp(operationType, leftSpace, left, rightSpace, right) {
+      return {
+        type: 'LOGICALBINARYOP',
+        operationType: operationType.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    move(move, leftSpace, left, rightSpace, right) {
+      return {
+        type: move.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    exchange(exchange, leftSpace, left, rightSpace, right) {
+      return {
+        type: exchange.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    convert(convert, leftSpace, left, rightSpace, right) {
+      return {
+        type: convert.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    load(load, targetSpace, target, leftSpace, left, rightSpace, right) {
+      return {
+        type: load.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON(),
+        target: target.quilToJSON()
+      };
+    },
+    store(store, target, targetSpace, leftSpace, left, rightSpace, right) {
+      return {
+        type: store.quilToJSON(),
+        target: target.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    classicalComparison(comparisonType, targetSpace, target, leftSpace, left, rightSpace, right) {
+      return {
+        type: 'COMPARISON',
+        comparisonType: comparisonType.quilToJSON(),
+        target: target.quilToJSON(),
+        left: left.quilToJSON(),
+        right: right.quilToJSON()
+      };
+    },
+    nop(nop) {
+      return {
+        type: nop.quilToJSON()
+      };
+    },
+    include(include, space, fileName) {
+      throw new Error('Not Implemented');
+    },
+    pragma(pragma, leftSpace, command, rightSpace, args, namesSpace, freeformText) {
+      throw new Error('Not Implemented');
+    },
     nonemptyListOf(x, sep, xs) {
       return [x.quilToJSON()].concat(xs.quilToJSON());
+    },
+    _terminal() {
+      return this.sourceString;
     }
   });
 

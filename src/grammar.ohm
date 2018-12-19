@@ -97,7 +97,7 @@ Quil {
 
   addr
     = identifier? "[" int "]" --dereference
-    | identifier
+    | identifier --constant
 
 
   /* Program Control */
@@ -159,7 +159,7 @@ Quil {
     = ( "ADD" | "SUB" | "MUL" | "DIV" ) sp addr sp ( addr | number )
 
   move
-    = "MOVE"sp addr sp ( addr | number )
+    = "MOVE" sp addr sp ( addr | number )
 
   exchange
     = "EXCHANGE" sp addr sp addr
@@ -171,10 +171,10 @@ Quil {
     = "LOAD" sp addr sp identifier sp addr
 
   store
-    = "STORE" identifier addr ( addr | number )
+    = "STORE" sp identifier sp addr sp ( addr | number )
 
   classicalComparison
-    = ( "EQ" | "GT" | "GE" | "LT" | "LE" ) addr addr ( addr | number )
+    = ( "EQ" | "GT" | "GE" | "LT" | "LE" ) sp addr sp addr sp ( addr | number )
 
   /* The No-Operation Instruction */
 

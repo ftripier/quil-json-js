@@ -1,0 +1,5 @@
+DEFGATE PARAM-GATE(%a, %b):
+    1 - %b, %a
+    %a, 1 - %b
+
+PARAM-GATE(1, 0) 0

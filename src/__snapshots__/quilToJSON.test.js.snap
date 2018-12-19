@@ -7,35 +7,35 @@ Array [
       Array [
         Object {
           "expression": "0.5+0.5i",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0.5-0.5i",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0.5-0.5i",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0.5+0.5i",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
     ],
     "name": "SQRT-X",
-    "type": "defGate",
+    "type": "DEFGATE",
     "variables": Array [],
   },
   Object {
     "name": "SQRT-X",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
 ]
 `;
@@ -48,24 +48,26 @@ Array [
       1,
     ],
     "register": "ro",
-    "sharing": Object {
-      "offset": Array [],
-      "register": Array [],
-    },
-    "type": "memoryDescriptor",
+    "sharing": undefined,
+    "type": "DECLARE",
   },
   Object {
     "name": "X",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
-    "address": 0,
+    "address": Object {
+      "address": "ro",
+      "addressType": "DEREFERENCE",
+      "index": 0,
+      "type": "ADDRESS",
+    },
     "qubitIndex": 0,
-    "type": "measure",
+    "type": "MEASURE",
   },
 ]
 `;
@@ -77,278 +79,278 @@ Array [
       Array [
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
     ],
     "name": "GROVER_ORACLE",
-    "type": "defGate",
+    "type": "DEFGATE",
     "variables": Array [],
   },
   Object {
@@ -356,439 +358,493 @@ Array [
       Array [
         Object {
           "expression": "1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
       Array [
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
         Object {
           "expression": "-1.0",
-          "type": "expression",
+          "type": "EXPRESSION",
         },
       ],
     ],
     "name": "HADAMARD_DIFFUSION",
-    "type": "defGate",
+    "type": "DEFGATE",
     "variables": Array [],
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       1,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "GROVER_ORACLE",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
       1,
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       1,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "HADAMARD_DIFFUSION",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
       1,
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       1,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "GROVER_ORACLE",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
       1,
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       1,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "HADAMARD_DIFFUSION",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
       1,
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       0,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       1,
     ],
-    "type": "gate",
+    "type": "GATE",
   },
   Object {
     "name": "H",
-    "params": Array [],
+    "params": undefined,
     "qubits": Array [
       2,
     ],
-    "type": "gate",
+    "type": "GATE",
+  },
+]
+`;
+
+exports[`Quil to JSON converts all quil programs to a JSON representation correctly 4`] = `
+Array [
+  Object {
+    "matrix": Array [
+      Array [
+        Object {
+          "expression": "1 - %b",
+          "type": "EXPRESSION",
+        },
+        Object {
+          "expression": "%a",
+          "type": "EXPRESSION",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "%a",
+          "type": "EXPRESSION",
+        },
+        Object {
+          "expression": "1 - %b",
+          "type": "EXPRESSION",
+        },
+      ],
+    ],
+    "name": "PARAM-GATE",
+    "type": "DEFGATE",
+    "variables": Array [
+      Array [
+        "a",
+        "b",
+      ],
+    ],
+  },
+  Object {
+    "name": "PARAM-GATE",
+    "params": Array [
+      Object {
+        "expression": "1",
+        "type": "EXPRESSION",
+      },
+      Object {
+        "expression": "0",
+        "type": "EXPRESSION",
+      },
+    ],
+    "qubits": Array [
+      0,
+    ],
+    "type": "GATE",
   },
 ]
 `;
