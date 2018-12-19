@@ -4,14 +4,26 @@ exports[`Quil to JSON converts all quil programs to a JSON representation correc
 Array [
   Object {
     "matrix": Array [
-      Object {
-        "expression": "0.5+0.5i",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0.5-0.5i",
-        "type": "expression",
-      },
+      Array [
+        Object {
+          "expression": "0.5+0.5i",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0.5-0.5i",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0.5-0.5i",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0.5+0.5i",
+          "type": "expression",
+        },
+      ],
     ],
     "name": "SQRT-X",
     "type": "defGate",
@@ -32,8 +44,14 @@ exports[`Quil to JSON converts all quil programs to a JSON representation correc
 Array [
   Object {
     "field": "BIT",
-    "index": 1,
+    "index": Array [
+      1,
+    ],
     "register": "ro",
+    "sharing": Object {
+      "offset": Array [],
+      "register": Array [],
+    },
     "type": "memoryDescriptor",
   },
   Object {
@@ -56,38 +74,278 @@ exports[`Quil to JSON converts all quil programs to a JSON representation correc
 Array [
   Object {
     "matrix": Array [
-      Object {
-        "expression": "1.0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
+      Array [
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+      ],
     ],
     "name": "GROVER_ORACLE",
     "type": "defGate",
@@ -95,38 +353,278 @@ Array [
   },
   Object {
     "matrix": Array [
-      Object {
-        "expression": "1.0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
-      Object {
-        "expression": "0",
-        "type": "expression",
-      },
+      Array [
+        Object {
+          "expression": "1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+      ],
+      Array [
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "0",
+          "type": "expression",
+        },
+        Object {
+          "expression": "-1.0",
+          "type": "expression",
+        },
+      ],
     ],
     "name": "HADAMARD_DIFFUSION",
     "type": "defGate",

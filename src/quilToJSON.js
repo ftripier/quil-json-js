@@ -1,6 +1,14 @@
 import ohm from 'ohm-js';
 import grammar from './grammar.ohm';
 
+const unpackOptional = optional => {
+  const unpacked = optional.quilToJSON();
+  if (unpacked.length > 0) {
+    return unpacked[0];
+  }
+  return undefined;
+};
+
 /* eslint-disable no-unused-vars */
 // we have unused variables in the visitor functions because Ohm uses
 // function arity as a bizzare form of dynamic typechecking.
@@ -10,13 +18,38 @@ export default function quilToJSON(quilProgram) {
     quil: (instructions, trailingSpace) => instructions.quilToJSON(),
     allInstr: instruction => instruction.quilToJSON(),
     instr: instruction => instruction.quilToJSON(),
-    memoryDescriptor(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11) {
-      const index = e7.quilToJSON();
+    memoryDescriptor(
+      declare,
+      identifierSpace1,
+      register,
+      identifierSpace2,
+      field,
+      leftBracket,
+      index,
+      rightBracket,
+      sharing,
+      sharingIdentifier,
+      sharingOffsetDescriptor
+    ) {
+      const parsedSharing = unpackOptional(sharingIdentifier);
       return {
         type: 'memoryDescriptor',
-        register: e3.quilToJSON(),
-        field: e5.quilToJSON(),
-        index: index.length > 0 ? index[0] : undefined
+        register: register.quilToJSON(),
+        field: field.quilToJSON(),
+        index: index.quilToJSON(),
+        sharing: parsedSharing
+          ? {
+              register: parsedSharing,
+              offset: sharingOffsetDescriptor.quilToJSON()
+            }
+          : undefined
+      };
+    },
+    offsetDescriptor(offset, leftSpace, index, rightSpace, register) {
+      return {
+        type: 'offsetDescriptor',
+        index: index.quilToJSON(),
+        register: register.quilToJSON()
       };
     },
     defGate(defgate, leftSpace, name, leftP, variables, rightP, colon, eol, matrix) {
@@ -81,8 +114,95 @@ export default function quilToJSON(quilProgram) {
         expression: this.sourceString
       };
     },
-    nonemptyListOf(firstParamList, secondParamList, delimiter2) {
-      return firstParamList.quilToJSON();
+    defCircuit(
+      defcircuit,
+      space,
+      name,
+      leftP,
+      variables,
+      rightP,
+      variableSpaces,
+      qubitVariables,
+      colon,
+      eol,
+      circuit
+    ) {
+      return {
+        type: 'defCircuit',
+        name: name.quilToJSON(),
+        variables: variables.quilToJSON(),
+        qubitVariables: qubitVariables.quilToJSON(),
+        circuit: circuit.quilToJSON()
+      };
+    },
+    qubitVariable(identifier) {
+      return identifier.quilToJSON();
+    },
+    circuitQubit(qubit) {
+      return qubit.quilToJSON();
+    },
+    circuitGate(name, lParen, params, rParen, space, circuitQubits) {
+      return {
+        type: 'circuitGate',
+        name: name.quilToJSON(),
+        params: params.quilToJSON(),
+        qubits: circuitQubits.quilToJSON()
+      };
+    },
+    circuitMeasure(measure, leftSpace, circuitQubit, rightSpace, address) {
+      return {
+        type: 'circuitMeasure',
+        qubit: circuitQubit.quilToJSON(),
+        address: address.quilToJSON()
+      };
+    },
+    circuitResetState(reset, circuitQubit) {
+      return {
+        type: 'circuitResetState',
+        qubit: circuitQubit.quilToJSON()
+      };
+    },
+    circuitInstr: instr => instr.quilToJSON(),
+    circuit(tabs, circuitInstrs, eols) {
+      return circuitInstrs.quilToJSON();
+    },
+    defLabel(deflabel, space, label) {
+      return {
+        type: 'defLabel',
+        label: label.quilToJSON()
+      };
+    },
+    label(at, identifier) {
+      return identifier.quilToJSON();
+    },
+    halt(halt) {
+      return {
+        type: 'halt'
+      };
+    },
+    jump(jump, space, label) {
+      return {
+        type: 'jump',
+        label: label.quilToJSON()
+      };
+    },
+    jumpWhen(jumpWhen, leftSpace, label, rightSpace, address) {
+      return {
+        type: 'jumpWhen',
+        label: label.quilToJSON(),
+        address: address.quilToJSON()
+      };
+    },
+    jumpUnless(jumpUnless, leftSpace, label, rightSpace, address) {
+      return {
+        type: 'jumpUnless',
+        label: label.quilToJSON(),
+        address: address.quilToJSON()
+      };
+    },
+    resetState(reset, space, qubit) {},
+    nonemptyListOf(x, sep, xs) {
+      return [x.quilToJSON()].concat(xs.quilToJSON());
     }
   });
 

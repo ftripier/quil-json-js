@@ -71,7 +71,7 @@ Quil {
     | qubitVariable
 
   circuitGate
-    = name ( "(" listOf<param, commaSeparator> ")" )? sp circuitQubit+
+    = name ( "(" listOf<param, commaSeparator> ")" )? (sp circuitQubit)+
 
   circuitMeasure
     = "MEASURE" sp circuitQubit sp addr?
@@ -86,7 +86,7 @@ Quil {
     | instr
 
   circuit
-    = ( tab circuitInstr eol )* tab circuitInstr
+    = ( tab circuitInstr eol? )+
 
 
   /* Measurement */
