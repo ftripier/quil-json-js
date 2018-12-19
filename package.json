@@ -2,11 +2,11 @@
   "name": "quil-json-js",
   "version": "0.1.0",
   "description": "Quil to JSON coverter written in JavaScript",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint \"src/**\"",
-    "format": "prettier --write ./**/*.js"
+    "format": "prettier --write ./**/*.js",
+    "build": "webpack"
   },
   "author": "Felix Tripier",
   "license": "ISC",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-es2016": "^6.24.1",
     "eslint": "^5.10.0",
@@ -27,6 +28,10 @@
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "prettier": "^1.15.3",
-    "webpack": "^4.27.1"
-  }
+    "raw-loader": "^1.0.0",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "browser": "dist/node-main.js",
+  "main": "dist/browser-main.js"
 }
