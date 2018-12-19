@@ -36,7 +36,7 @@ export default function quilToJSON(quilProgram) {
         type: declare.quilToJSON(),
         register: register.quilToJSON(),
         field: field.quilToJSON(),
-        index: index.quilToJSON(),
+        index: unpackOptional(index),
         sharing: parsedSharing
           ? {
               register: parsedSharing,
@@ -132,7 +132,7 @@ export default function quilToJSON(quilProgram) {
       return {
         type: defcircuit.quilToJSON(),
         name: name.quilToJSON(),
-        variables: variables.quilToJSON(),
+        variables: unpackOptional(variables),
         qubitVariables: qubitVariables.quilToJSON(),
         circuit: circuit.quilToJSON()
       };
@@ -147,7 +147,7 @@ export default function quilToJSON(quilProgram) {
       return {
         type: 'CIRCUITGATE',
         name: name.quilToJSON(),
-        params: params.quilToJSON(),
+        params: unpackOptional(params),
         qubits: circuitQubits.quilToJSON()
       };
     },
@@ -155,13 +155,13 @@ export default function quilToJSON(quilProgram) {
       return {
         type: measure.quilToJSON(),
         qubit: circuitQubit.quilToJSON(),
-        address: address.quilToJSON()
+        address: unpackOptional(address)
       };
     },
     circuitResetState(reset, circuitQubit) {
       return {
         type: reset.quilToJSON(),
-        qubit: circuitQubit.quilToJSON()
+        qubit: unpackOptional(circuitQubit)
       };
     },
     circuitInstr: instr => instr.quilToJSON(),

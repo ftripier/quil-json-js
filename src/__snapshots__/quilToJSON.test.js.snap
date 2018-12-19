@@ -44,9 +44,7 @@ exports[`Quil to JSON converts all quil programs to a JSON representation correc
 Array [
   Object {
     "field": "BIT",
-    "index": Array [
-      1,
-    ],
+    "index": 1,
     "register": "ro",
     "sharing": undefined,
     "type": "DECLARE",
