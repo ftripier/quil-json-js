@@ -17,7 +17,8 @@ const browserConfig = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'browser-main.js',
     library: 'quilToJSON',
-    libraryExport: 'default'
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   }
 };
 
@@ -28,7 +29,8 @@ const nodeConfig = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'node-main.js',
     library: 'quilToJSON',
-    libraryExport: 'default'
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   }
 };
 
