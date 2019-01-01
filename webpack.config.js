@@ -15,7 +15,9 @@ const browserConfig = {
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'browser-main.js'
+    filename: 'browser-main.js',
+    library: 'quilToJSON',
+    libraryExport: 'default'
   }
 };
 
@@ -24,7 +26,9 @@ const nodeConfig = {
   target: 'node',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'node-main.js'
+    filename: 'node-main.js',
+    library: 'quilToJSON',
+    libraryExport: 'default'
   }
 };
 
