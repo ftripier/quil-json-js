@@ -33,5 +33,6 @@
     "webpack-cli": "^3.1.2"
   },
   "browser": "dist/node-main.js",
-  "main": "dist/browser-main.js"
+  "main": "dist/browser-main.js",
+  "types": "./index.d.ts"
 }
